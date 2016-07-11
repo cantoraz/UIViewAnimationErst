@@ -24,15 +24,23 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    CGPoint usernameCenterPoint = CGPointMake(_usernameField.center.x - self.view.bounds.size.width, _usernameField.center.y);
-    _usernameField.center = usernameCenterPoint;
+    // Prepare position of usernameField
+    CGPoint usernameFieldCenterPoint = CGPointMake(_usernameField.center.x - self.view.bounds.size.width, _usernameField.center.y);
+    _usernameField.center = usernameFieldCenterPoint;
     
-    CGPoint passwrodCenterPoint = CGPointMake(_passwordField.center.x - self.view.bounds.size.width, _passwordField.center.y);
-    _passwordField.center = passwrodCenterPoint;
+    // Prepare position of passwordField
+    CGPoint passwrodFieldCenterPoint = CGPointMake(_passwordField.center.x - self.view.bounds.size.width, _passwordField.center.y);
+    _passwordField.center = passwrodFieldCenterPoint;
+    
+    // Prepare position of loginButton
+    CGPoint loginButtonCenterPoint = CGPointMake(_loginButton.center.x, _loginButton.center.y + 30.);
+    _loginButton.center = loginButtonCenterPoint;
+    _loginButton.alpha = 0.;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    // Animate the usernameField
     [UIView animateWithDuration:.5f animations:^{
         CGPoint usernameCenterPoint = CGPointMake(_usernameField.center.x + self.view.bounds.size.width, _usernameField.center.y);
         _usernameField.center = usernameCenterPoint;
@@ -41,6 +49,7 @@
 //        _passwordField.center = passwrodCenterPoint;
     }];
     
+    // Animate the passwordField with delay
     [UIView animateWithDuration:.5f delay:.3f
                         options:UIViewAnimationOptionAllowUserInteraction
                                |UIViewAnimationCurveEaseOut
