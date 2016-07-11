@@ -9,7 +9,9 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (nonatomic, weak) IBOutlet UITextField* usernameField;
+@property (nonatomic, weak) IBOutlet UITextField* passwordField;
+@property (nonatomic, weak) IBOutlet UIButton*    loginButton;
 @end
 
 @implementation ViewController
